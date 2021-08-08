@@ -2,7 +2,7 @@
 
 > UI Library
 
-[![NPM](https://img.shields.io/npm/v/fusion-ui.svg)](https://www.npmjs.com/package/fusion-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@toruk/fusion-ui.svg)](https://www.npmjs.com/package/@toruk/fusion-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 

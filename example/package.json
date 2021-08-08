@@ -1,8 +1,7 @@
 {
-  "name": "fusion-ui-example",
+  "name": "@toruk/fusion-ui-example",
   "homepage": ".",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.2",
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
     "build": "node ../node_modules/react-scripts/bin/react-scripts.js build",
