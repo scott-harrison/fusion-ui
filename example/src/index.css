@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -11,4 +15,66 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.fui-main {
+  width: 100%;
+}
+
+.fui-example {
+  padding: 1.5rem;
+  margin-right: 0;
+  margin-left: 0;
+  border-width: 1px;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  margin: 1rem auto 0;
+  border-color: #dee2e6;
+  border-style: solid;
+}
+
+.fui-content {
+  min-width: 1px;
+}
+
+.fui-example>[data-button] {
+  margin: .25rem .125rem;
+}
+
+.highlight {
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  background-color: #f8f9fa;
+  overflow-x: auto;
+}
+
+.fui-example [data-grid-column] {
+  border: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+  padding: 1rem;
+}
+
+.fui-sidebar ul {
+  padding: 0;
+}
+
+.fui-sidebar li {
+  display: block;
+}
+
+.fui-sidebar li:not(:last-child) {
+  border-bottom: thin solid #ececec;
+}
+
+.fui-sidebar a {
+  display: block;
+  padding: .4rem .5rem;
+  margin-top: .125rem;
+  color: rgba(0,0,0,0.65);
+  text-decoration: none;
+}
+
+.fui-sidebar a:hover {
+  background-color: #f8f9faa4;
+  color: rgba(43, 43, 43, 0.65);
 }
