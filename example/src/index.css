@@ -18,7 +18,10 @@ code {
 }
 
 .fui-main {
-  width: 100%;
+  position: relative;
+  min-height: 500px;
+  padding: 0 170px 32px 64px;
+  background: #fff;
 }
 
 .fui-example {
@@ -54,12 +57,54 @@ code {
   padding: 1rem;
 }
 
+.fui-sidebar {
+  border-right: 1px solid #f0f0f0;
+}
+
 .fui-sidebar ul {
   padding: 0;
 }
 
 .fui-sidebar li {
-  display: block;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  color: rgb(24, 144, 255);
+  cursor: pointer;
+  display: flex;
+  font-family: Avenir, -apple-system, system-ui, "segoe ui", Roboto, "helvetica neue", Arial, "noto sans", sans-serif, "apple color emoji", "segoe ui emoji", "segoe ui symbol", "noto color emoji", sans-serif;
+  font-feature-settings: "tnum";
+  font-size: 14px;
+  font-variant-caps: normal;
+  font-variant-east-asian: normal;
+  font-variant-ligatures: normal;
+  font-variant-numeric: tabular-nums;
+  height: 40px;
+  line-height: 40px;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  margin-bottom: 8px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 4px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding-bottom: 0px;
+  padding-left: 40px;
+  padding-right: 16px;
+  padding-top: 0px;
+  position: relative;
+  text-align: left;
+  text-overflow: ellipsis;
+  text-size-adjust: 100%;
+  transition-delay: 0s, 0s, 0s;
+  transition-duration: 0.3s, 0.3s, 0.1s;
+  transition-property: border-color, background, padding;
+  transition-timing-function: ease, ease, cubic-bezier(0.215, 0.61, 0.355, 1);
+  white-space: nowrap;
+  width: 257.906px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .fui-sidebar li:not(:last-child) {

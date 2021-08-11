@@ -15,7 +15,7 @@ npm install --save fusion-ui
 ```tsx
 import React, { Component } from 'react'
 
-import MyComponent from 'fusion-ui'
+import MyComponent from '@toruk/fusion-ui'
 import 'fusion-ui/dist/index.css'
 
 class Example extends Component {
