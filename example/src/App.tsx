@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
 import { GridContainer, GridRow, GridColumn } from 'fusion-ui'
 import Overview from './pages/Overview';
 import SideNav from './components/SideNav';
