@@ -10,10 +10,10 @@ const App = () => {
   return (
     <Grid full={true}>
       <Row>
-        <Column xs={12} md={3}>
+        <Column sm={12} md={4} lg={3} xl={2}>
           <SideNav />
         </Column>
-        <Column xs={12} md={9}>
+        <Column sm={12} md={8} lg={9} xl={10}>
           <Router>
               <Route path="/components/overview" exact render={OverviewPage} />
               <Route path="/components/grid" exact render={GridPage} />

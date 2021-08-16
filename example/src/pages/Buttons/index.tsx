@@ -1,58 +1,32 @@
 import { Fragment } from "react";
+import { chunk } from 'lodash'; 
 //@ts-ignore
 import Prism from "prismjs"
-// import { Button } from 'fusion-ui'
+import { Column, Grid, Row } from 'fusion-ui'
+import CodeBox from "../../components/CodeBox";
+import docs from './data';
 
-const code = {
-  buttonCode: `
-    <Button value="Outline" size="small" variant="outline" rounded />
-    <Button value="Solid" size="small" variant="solid" rounded />
-    <Button value="Solid" size="medium" variant="solid" rounded />
-  `.trimEnd(),
-  fullButtonCode: `
-    <Button data-button value="Solid" size="full" variant="solid" rounded />
-    <Button data-button value="Outline" size="full" variant="outline" rounded />
-  `.trimEnd()
-}
-
+const data = chunk(docs, 2)
 const ButtonsPage = () => (
     <Fragment>
         <main className="fui-main">
             <div className="fui-content">
-            <h2 id="button">Buttons</h2>
-               <p>Fusions buttons styles are very simplistic offering outline and solid variants.</p>
-               <div className="fui-example">
-                 {/* <Button data-button value="Outline" size="small" variant="link" rounded />
-                 <Button data-button value="Outline" size="small" variant="outline" rounded />
-                 <Button data-button value="Solid" size="small" variant="solid" rounded />
-                 <Button data-button value="Outline" size="medium" variant="outline" rounded />
-                 <Button data-button value="Solid" size="medium" variant="solid" rounded />
-                 <Button data-button value="Outline" size="large" variant="outline" rounded />
-                 <Button data-button value="Solid" size="large" variant="solid" rounded />
-                 <Button data-button value="Solid" size="large" variant="solid" /> */}
-               </div>
-               <div className="highlight">
-                 <pre className="line-numbers">
-                   <code className="language-html">
-                     {
-                       code.buttonCode
-                     }
-                   </code>
-                 </pre>
-               </div>
-               <div className="fui-example">
-                 {/* <Button data-button value="Solid" size="full" variant="solid" rounded />
-                 <Button data-button value="Outline" size="full" variant="outline" rounded /> */}
-               </div>
-               <div className="highlight">
-                 <pre className="line-numbers">
-                   <code className="language-html">
-                     {
-                       code.fullButtonCode
-                     }
-                   </code>
-                 </pre>
-               </div>
+            	<h2 id="button">Buttons</h2>
+               	<p>Fusions buttons styles are very simplistic offering outline and solid variants.</p>
+				<Grid>
+					<Row>
+						<Column md={12} lg={6}>
+							{data[0] && data[0].map((doc: any, key) => (
+								<CodeBox key={key} title={doc.title} description={doc.description} examples={doc.examples} />
+							))}
+						</Column>
+						<Column md={12} lg={6}>
+							{data[1] && data[1].map((doc: any, key) => (
+								<CodeBox key={key} title={doc.title} description={doc.description} examples={doc.examples} />
+							))}
+						</Column>
+					</Row>
+				</Grid>
             </div>
         </main>
     </Fragment>
