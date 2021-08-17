@@ -2,6 +2,16 @@ import styled from "styled-components/macro";
 import { css } from 'styled-components';
 import { ButtonProps } from './';
 
+export const AnchorStyled = styled.a<ButtonProps>`
+    font-size: inherit;
+    padding: 0;
+    border-bottom: 1px solid #212529;
+    color: #212529;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color .15s ease-in-out;
+`
+
 export const ButtonStyled = styled.button<ButtonProps>`
     display: inline-block;
     font-weight: 400;
@@ -19,7 +29,7 @@ export const ButtonStyled = styled.button<ButtonProps>`
     border-radius: 4px;
     font-size: .8rem;
     padding: .2rem .8rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 
     ${props => props.variant === 'primary' && css`
         color: #fff;

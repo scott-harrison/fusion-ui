@@ -74,10 +74,10 @@ const data = [
                 "title": "link",
                 "demo": () => {
                     return (
-                        <Button variant="link" size="medium" onClick={() => {}}>Full</Button>
+                        <Button href="#test" variant="link" size="medium">Link</Button>
                     )
                 },
-                "code": `<Button variant='link' size='medium' onClick={() => {}}>Full</Button>`
+                "code": `<Button href="#test" variant='link' size='medium'>Link</Button>`
             }
         ]
     },
