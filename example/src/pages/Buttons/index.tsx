@@ -4,9 +4,24 @@ import { chunk } from 'lodash';
 import Prism from "prismjs"
 import { Column, Grid, Row } from 'fusion-ui'
 import CodeBox from "../../components/CodeBox";
-import docs from './data';
+import data from './data';
 
-const data = chunk(docs, 2)
+const docs = chunk(data.docs, 2)
+const renderApi = () => {
+	return data.api.map((element, index) => {
+		const { property, type, default: defaultValue, description } = element
+		return (
+			<tr key={index}>
+				<td><strong>{property}</strong></td>
+				<td><code>{type}</code></td>
+				<td><code>{defaultValue}</code></td>
+				<td>{description}</td>
+			</tr>
+		)
+	})
+}
+
+
 const ButtonsPage = () => (
     <Fragment>
         <main className="fui-main">
@@ -16,17 +31,31 @@ const ButtonsPage = () => (
 				<Grid>
 					<Row>
 						<Column md={12} lg={6}>
-							{data[0] && data[0].map((doc: any, key) => (
+							{docs[0] && docs[0].map((doc: any, key) => (
 								<CodeBox key={key} title={doc.title} description={doc.description} examples={doc.examples} />
 							))}
 						</Column>
 						<Column md={12} lg={6}>
-							{data[1] && data[1].map((doc: any, key) => (
+							{docs[1] && docs[1].map((doc: any, key) => (
 								<CodeBox key={key} title={doc.title} description={doc.description} examples={doc.examples} />
 							))}
 						</Column>
 					</Row>
 				</Grid>
+				<h2 id="api">API</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Type</th>
+							<th>Default</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						{renderApi()}
+					</tbody>
+				</table>
             </div>
         </main>
     </Fragment>

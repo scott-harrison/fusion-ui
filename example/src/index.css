@@ -91,3 +91,39 @@
     background-color: #f8f9faa4;
     color: rgba(43, 43, 43, 0.65);
   }
+
+  table {
+    display: table;
+    margin: 2em 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    font-size: 13px;
+    font-family: Avenir, -apple-system, system-ui, "segoe ui", Roboto, "helvetica neue", Arial, "noto sans", sans-serif, "apple color emoji", "segoe ui emoji", "segoe ui symbol", "noto color emoji", sans-serif;
+    line-height: 1.5715;
+    border: 0;
+    width: 100%;
+    margin: 8px 0 16px;
+    direction: ltr;
+    empty-cells: show;
+    border: 1px solid #f0f0f0;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  table th:not(:last-child), table td:not(:last-child) {
+    border-right: 1px solid #f0f0f0;
+  }
+
+  table th {
+    padding-top: 14px;
+    border-width: 1px 0 2px;
+    color: #5c6b77;
+    font-weight: 500;
+    white-space: nowrap;
+    background: rgba(0,0,0,.02);
+  }
+
+  table td, table th {
+    padding: 12px;
+    text-align: left;
+  }

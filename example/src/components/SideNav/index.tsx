@@ -3,12 +3,12 @@ import styled from 'styled-components';
 const StickyNav = styled.div`
   position: -webkit-sticky;
   position: sticky;
+  top: 10px;
   display: block !important;
   height: calc(100vh - 7rem);
   padding-left: .25rem;
   margin-left: -.25rem;
   overflow-y: auto;
-  
 `;
 
 const SideNav = () => {
