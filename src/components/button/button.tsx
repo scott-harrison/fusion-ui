@@ -97,7 +97,7 @@ export const ButtonStyled = styled.button<ButtonProps>`
     `}
 
     ${(p) =>
-    p.disabled == true &&
+    p.disabled === true &&
     css`
       border-color: #d9d9d9;
       background-color: #e9e9e9;

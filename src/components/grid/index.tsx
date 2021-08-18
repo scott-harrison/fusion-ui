@@ -18,7 +18,7 @@ const remy = (px: number) => `${px / 16}rem`;
 
 // Function for calculating value for width
 const getWidth = (value: number) => {
-  if (!value) return;
+  if (!value) return undefined;
 
   const width = (value / 12) * 100;
   return `width: ${width}%;`;
@@ -26,7 +26,7 @@ const getWidth = (value: number) => {
 
 // Function for calculating value for flex
 const getFlex = (value: number) => {
-  if (!value) return;
+  if (!value) return undefined;
 
   const flex = (value / 12) * 100;
   return `flex: 0 0 ${flex}%;`;

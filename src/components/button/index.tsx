@@ -2,12 +2,12 @@ import React from "react";
 import { ButtonStyled, AnchorStyled } from "./button";
 
 const ButtonVariant = ["primary", "outline", "link"];
-type ButtonVariant = typeof ButtonVariant[number];
+type VariantType = typeof ButtonVariant[number];
 type SizeType = "small" | "medium" | "large" | "full" | undefined;
 type targetType = "_blank" | "_self" | "_parent" | "_top" | "framename";
 
 export interface ButtonProps {
-  variant?: ButtonVariant;
+  variant?: VariantType;
   href?: string;
   target?: targetType;
   size?: SizeType;
@@ -15,9 +15,7 @@ export interface ButtonProps {
   className?: string;
   style?: object;
   children?: React.ReactChild;
-  onClick?: (
-    e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>
-  ) => void;
+  onClick?: () => void;
 }
 
 const InternalButton: React.ForwardRefRenderFunction<
