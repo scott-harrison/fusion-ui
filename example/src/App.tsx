@@ -1,28 +1,27 @@
-import React from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Grid, Row, Column } from 'fusion-ui';
 
-import { GridContainer, GridRow, GridColumn } from 'fusion-ui'
-import Overview from './pages/Overview';
-import SideNav from './components/SideNav';
+import SideNav from "./components/SideNav";
+import OverviewPage from './pages/Overview';
 import GridPage from './pages/Grid';
 import ButtonsPage from './pages/Buttons';
 
 const App = () => {
   return (
-    <GridContainer full>
-		<GridRow>
-			<GridColumn xs={12} md={2}>
-				<SideNav />
-			</GridColumn>
-			<GridColumn xs={12} md={10}>
-				<Router>
-       				<Route path="/components/overview" exact render={Overview} />
-       				<Route path="/components/grid" exact render={GridPage} />
-       				<Route path="/components/buttons" exact render={ButtonsPage} />
-			    </Router>
-			</GridColumn>
-		</GridRow>
-    </GridContainer>
+    <Grid full={true}>
+      <Row>
+        <Column sm={12} md={4} lg={3} xl={2}>
+          <SideNav />
+        </Column>
+        <Column sm={12} md={8} lg={9} xl={10}>
+          <Router>
+              <Route path="/components/overview" exact render={OverviewPage} />
+              <Route path="/components/grid" exact render={GridPage} />
+              <Route path="/components/buttons" exact render={ButtonsPage} />
+          </Router>
+        </Column>
+      </Row>
+    </Grid>
   );
 }
 export default App

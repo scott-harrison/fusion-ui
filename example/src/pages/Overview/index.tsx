@@ -1,13 +1,13 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 
-const OverviewPage = () => (
+const ButtonsPage = () => (
     <Fragment>
         <main className="fui-main">
             <div className="fui-content">
-                <h2>Component Overview</h2>
+                <h2 id="Overview">Component Overview</h2>
             </div>
         </main>
     </Fragment>
 );
 
-export default OverviewPage;
+export default ButtonsPage;
