@@ -25,6 +25,8 @@ const SideNav = () => {
                 <li><Title>General</Title></li>
                 <li><a href="/components/grid">Grid System</a></li>
                 <li><a href="/components/buttons">Buttons</a></li>
+                <li><Title>Data Entry</Title></li>
+                <li><a href="/components/input">Input</a></li>
             </ul>
         </StickyNav>
     );
