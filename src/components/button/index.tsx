@@ -15,7 +15,7 @@ export interface ButtonProps {
   className?: string;
   style?: object;
   children?: React.ReactChild;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent) => void;
 }
 
 const InternalButton: React.ForwardRefRenderFunction<
