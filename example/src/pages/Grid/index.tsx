@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import React from 'react'
 import { Grid, Row, Column } from 'fusion-ui'
 
 const code = {
@@ -13,11 +13,11 @@ const code = {
           </Column>
         </Row>
       </Grid>
-    `.trimEnd()
+    `.trimEnd(),
 }
 
 const GridPage = () => (
-    <Fragment>
+    <React.Fragment>
         <main className="fui-main">
             <div className="fui-content">
                 <h2 id="grid">Grid System</h2>
@@ -35,16 +35,12 @@ const GridPage = () => (
                 </div>
                 <div className="highlight">
                     <pre className="line-numbers">
-                    <code className="language-html">
-                        {
-                            code.gridCode
-                        }
-                    </code>
+                        <code className="language-html">{code.gridCode}</code>
                     </pre>
                 </div>
             </div>
         </main>
-    </Fragment>
-);
+    </React.Fragment>
+)
 
-export default GridPage;
+export default GridPage

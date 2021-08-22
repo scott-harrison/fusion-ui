@@ -1,13 +1,13 @@
-import { Fragment } from "react";
+import React from 'react'
 
 const ButtonsPage = () => (
-    <Fragment>
+    <React.Fragment>
         <main className="fui-main">
             <div className="fui-content">
                 <h2 id="Overview">Component Overview</h2>
             </div>
         </main>
-    </Fragment>
-);
+    </React.Fragment>
+)
 
-export default ButtonsPage;
+export default ButtonsPage
