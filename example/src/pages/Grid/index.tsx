@@ -1,4 +1,3 @@
-import React from 'react'
 import { Grid, Row, Column } from 'fusion-ui'
 
 const code = {
@@ -17,30 +16,28 @@ const code = {
 }
 
 const GridPage = () => (
-    <React.Fragment>
-        <main className="fui-main">
-            <div className="fui-content">
-                <h2 id="grid">Grid System</h2>
-                <div className="fui-example">
-                    <Grid>
-                        <Row>
-                            <Column data-grid-column xs={12} md={4}>
-                                Column 1
-                            </Column>
-                            <Column data-grid-column xs={12} md={8}>
-                                Column 2
-                            </Column>
-                        </Row>
-                    </Grid>
-                </div>
-                <div className="highlight">
-                    <pre className="line-numbers">
-                        <code className="language-html">{code.gridCode}</code>
-                    </pre>
-                </div>
+    <main className="fui-main">
+        <div className="fui-content">
+            <h2 id="grid">Grid System</h2>
+            <div className="fui-example">
+                <Grid>
+                    <Row>
+                        <Column data-grid-column xs={12} md={4}>
+                            Column 1
+                        </Column>
+                        <Column data-grid-column xs={12} md={8}>
+                            Column 2
+                        </Column>
+                    </Row>
+                </Grid>
             </div>
-        </main>
-    </React.Fragment>
+            <div className="highlight">
+                <pre className="line-numbers">
+                    <code className="language-html">{code.gridCode}</code>
+                </pre>
+            </div>
+        </div>
+    </main>
 )
 
 export default GridPage

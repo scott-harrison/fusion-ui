@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import parseMarkup from 'html-react-parser'
 
 interface IExample {
@@ -7,6 +7,10 @@ interface IExample {
     description?: string
     demo: () => React.ReactChild
     code: string
+}
+
+interface IExamplesWrapper {
+    total: number
 }
 
 const Box = styled.div`
@@ -43,12 +47,27 @@ const Title = styled.div`
 
 const Description = styled.div`
     padding: 18px 24px 12px;
+    font-size: 0.8rem;
+    p:not(:first-child) {
+        margin-bottom: 0.8rem;
+    }
+`
+
+const Example = styled.div``
+
+const ExamplesWrapper = styled.div<IExamplesWrapper>`
+    margin-top: 2rem;
+    ${(p) =>
+        p.total > 1 &&
+        css`
+            border-top: 1px dashed #f0f0f0;
+        `}
 `
 
 const renderExamples = (examples: [IExample]) => {
-    return examples.map((example: IExample) => {
+    return examples.map((example: IExample, index: number) => {
         return (
-            <div key={example.title}>
+            <Example key={index}>
                 <Meta>
                     <Title>{example.title}</Title>
                     {example.description && (
@@ -65,7 +84,7 @@ const renderExamples = (examples: [IExample]) => {
                         </pre>
                     </div>
                 </Meta>
-            </div>
+            </Example>
         )
     })
 }
@@ -77,9 +96,13 @@ const CodeBox = (props: any) => {
         <Box>
             <Meta>
                 <Title>{title}</Title>
-                <Description>{parseMarkup(description)}</Description>
+                {description && (
+                    <Description>{parseMarkup(description)}</Description>
+                )}
             </Meta>
-            {renderExamples(examples)}
+            <ExamplesWrapper total={examples.length}>
+                {renderExamples(examples)}
+            </ExamplesWrapper>
         </Box>
     )
 }

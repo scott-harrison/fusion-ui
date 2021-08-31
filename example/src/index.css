@@ -36,10 +36,6 @@
     border-style: solid;
   }
   
-  .fui-content p:last-of-type{
-    padding-bottom: 40px;
-  }
-  
   .fui-example>[data-button] {
     margin: .25rem .125rem;
   }
@@ -126,4 +122,16 @@
   table td, table th {
     padding: 12px;
     text-align: left;
+  }
+
+  code:not(.language-markup) {
+    border-radius: 2px;
+    padding: 0.2rem;
+    background-color: #f7f5f5;
+    color: #000;
+  }
+
+  code.highlight {
+    background-color: transparent;
+    color: rgb(204, 57, 57)
   }

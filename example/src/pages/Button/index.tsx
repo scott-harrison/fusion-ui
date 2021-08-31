@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import { chunk } from 'lodash'
 import { Column, Grid, Row } from 'fusion-ui'
 import CodeBox from '../../components/CodeBox'
@@ -14,7 +13,7 @@ const renderApi = () => {
                     <strong>{property}</strong>
                 </td>
                 <td>
-                    <code>{type}</code>
+                    <code className="highlight">{type}</code>
                 </td>
                 <td>
                     <code>{defaultValue}</code>
@@ -26,55 +25,53 @@ const renderApi = () => {
 }
 
 const ButtonPage = () => (
-    <Fragment>
-        <main className="fui-main">
-            <div className="fui-content">
-                <h2 id="button">Buttons</h2>
-                <p>
-                    Fusions buttons styles are very simplistic offering outline
-                    and solid variants.
-                </p>
-                <Grid>
-                    <Row>
-                        <Column md={12} lg={6}>
-                            {docs[0] &&
-                                docs[0].map((doc: any) => (
-                                    <CodeBox
-                                        key={doc.title}
-                                        title={doc.title}
-                                        description={doc.description}
-                                        examples={doc.examples}
-                                    />
-                                ))}
-                        </Column>
-                        <Column md={12} lg={6}>
-                            {docs[1] &&
-                                docs[1].map((doc: any) => (
-                                    <CodeBox
-                                        key={doc.title}
-                                        title={doc.title}
-                                        description={doc.description}
-                                        examples={doc.examples}
-                                    />
-                                ))}
-                        </Column>
-                    </Row>
-                </Grid>
-                <h2 id="api">API</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Property</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>{renderApi()}</tbody>
-                </table>
-            </div>
-        </main>
-    </Fragment>
+    <main className="fui-main">
+        <div className="fui-content">
+            <h2 id="button">Buttons</h2>
+            <p>
+                Fusions buttons styles are very simplistic offering outline and
+                solid variants.
+            </p>
+            <Grid>
+                <Row>
+                    <Column md={12} lg={6}>
+                        {docs[0] &&
+                            docs[0].map((doc: any) => (
+                                <CodeBox
+                                    key={doc.title}
+                                    title={doc.title}
+                                    description={doc.description}
+                                    examples={doc.examples}
+                                />
+                            ))}
+                    </Column>
+                    <Column md={12} lg={6}>
+                        {docs[1] &&
+                            docs[1].map((doc: any) => (
+                                <CodeBox
+                                    key={doc.title}
+                                    title={doc.title}
+                                    description={doc.description}
+                                    examples={doc.examples}
+                                />
+                            ))}
+                    </Column>
+                </Row>
+            </Grid>
+            <h2 id="api">API</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>{renderApi()}</tbody>
+            </table>
+        </div>
+    </main>
 )
 
 export default ButtonPage
