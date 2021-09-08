@@ -44,22 +44,25 @@ const data = {
                                     type="text"
                                     label="small"
                                     inputSize="small"
+                                    required
                                 />
                                 <Input
                                     type="text"
                                     label="medium"
                                     inputSize="medium"
+                                    required
                                 />
                                 <Input
                                     type="text"
                                     label="large"
                                     inputSize="large"
+                                    required
                                 />
                             </div>
                         )
                     },
                     code: `
-                    <Input type="text" label="small" inputSize="small" />\n<Input type="text" label="medium"  inputSize="medium" />\n<Input type="text" label="large" inputSize="large" />
+                    <Input type="text" label="small" inputSize="small" />\n<Input type="text" label="medium" inputSize="medium" />\n<Input type="text" label="large" inputSize="large" />
                     `.trim(),
                 },
             ],

@@ -21,6 +21,7 @@ interface IFieldProps {
 interface IWrapper {
     required?: boolean
     inputSize?: sizeType
+    helperText?: boolean
     error?: boolean
 }
 
@@ -34,23 +35,12 @@ interface ILabel {
 
 const InputWrapper = styled.div<IWrapper>`
     position: relative;
-    display: flex;
-    flex-direction: row;
+    display: block;
     width: 100%;
     max-width: 400px;
-    margin: 0.8rem auto;
-    background: #fff;
-    transition: all 0.3s ease 0s, height 0s ease 0s;
+    padding: 1.5rem 0 1rem;
+    margin: 0 auto;
     animation-duration: 0.8s;
-    :focus-within,
-    :hover {
-        label {
-            color: #107cdc;
-        }
-    }
-    :first-child {
-        margin-top: 0.2rem;
-    }
 
     @keyframes shake {
         0%,
@@ -78,10 +68,11 @@ const InputWrapper = styled.div<IWrapper>`
             &:after {
                 content: '●';
                 color: #107cdc;
-                font-size: 0.35rem;
+                font-family: 'Helvetica Neue';
+                font-size: 0.8rem;
                 position: absolute;
+                top: calc(50% - 0.2rem);
                 right: 1rem;
-                top: calc(50% - 0.15rem);
             }
         `}
     ${(p) =>
@@ -89,82 +80,109 @@ const InputWrapper = styled.div<IWrapper>`
         css`
             animation-name: shake;
             border-color: #c0392b;
-            margin-bottom: 3.2rem;
-        `}
-`
-
-const InputField = styled.input<IFieldProps>`
-    flex-grow: 1;
-    background: inherit;
-    border: none;
-    color: #000;
-    font-size: 0.8rem;
-    border: 1px solid #eaeaea;
-    border-radius: 2px;
-    padding: 0.8rem 1rem;
-    vertical-align: middle;
-    outline: none;
-    transition: border-color 250ms ease color 250ms ease;
-    ::placeholder {
-        color: #d3d3d2;
-    }
-    :focus,
-    :hover {
-        border-color: #107cdc;
-        caret-color: #107cdc;
-    }
-    ${(p) =>
-        p.inputSize === 'small' &&
-        css`
-            font-size: 0.8rem;
-            padding: 0.5rem 0.7rem;
         `}
 
     ${(p) =>
-        p.inputSize === 'large' &&
+        p.helperText === true &&
         css`
-            font-size: 1.1rem;
-            padding: 1rem 1rem;
+            padding-bottom: 0;
+            &:after {
+                top: calc(50% - 0.5rem);
+            }
         `}
 
-    ${(p) =>
-        p.error === true &&
-        css`
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-            border-color: #c0392b;
-        `}
+    ${(p) => p.inputSize === 'large' && css``}
 `
 
 const Label = styled.label<ILabel>`
     position: absolute;
-    top: -0.5rem;
-    left: 0.5rem;
-    padding: 0.15rem 0.2rem;
-    background-color: #fff;
-    border-radius: 2px;
-    font-size: 0.5rem;
-    color: #a2a2a2;
-    transition: all 0.3s ease 0s, height 0s ease 0s;
-
-    ${(p) =>
-        p.inputSize === 'medium' &&
-        css`
-            top: -0.65rem;
-            font-size: 0.8rem;
-        `}
-
+    top: 0rem;
+    left: 0;
+    font-family: 'Helvetica Neue';
+    font-weight: 400;
+    font-size: 0.8rem;
+    letter-spacing: 0.04rem;
+    transition: 0.2s;
+    pointer-events: none;
     ${(p) =>
         p.inputSize === 'large' &&
         css`
-            top: -0.8rem;
             font-size: 1rem;
         `}
 `
 
+const InputField = styled.input<IFieldProps>`
+    width: 100%;
+    border: 1px solid #e3e3e3;
+    outline: 0;
+    font-size: 0.8rem;
+    font-family: 'Helvetica Neue';
+    font-weight: 400;
+    letter-spacing: 0.04rem;
+    color: #000;
+    background: transparent;
+    padding: 0.8rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    &:focus ~ ${Label} {
+        position: absolute;
+        display: block;
+        left: 0;
+        transition: 0.2s;
+    }
+    &::placeholder {
+        color: transparent;
+    }
+    &:placeholder-shown ~ ${Label} {
+        font-size: 0.8rem;
+        cursor: text;
+        color: #c3c3c3;
+        top: 2.4rem;
+        left: 1rem;
+    }
+
+    ${(p) =>
+        p.error &&
+        css`
+            border-color: #c0392b;
+            color: #c0392b;
+            & ~ ${Label} {
+                color: #c0392b;
+            }
+            &:placeholder-shown ~ ${Label} {
+                color: #c0392b;
+            }
+            &:focus {
+                color: #000;
+            }
+        `}
+
+    ${(p) =>
+        p.inputSize === 'small' &&
+        css`
+            font-size: 0.8rem;
+            padding: 0.6rem 0.8rem;
+            &:placeholder-shown ~ ${Label} {
+                font-size: 0.8rem;
+                top: 2.2rem;
+                left: 0.8rem;
+            }
+        `}
+    ${(p) =>
+        p.inputSize === 'large' &&
+        css`
+            font-size: 1rem;
+            padding: 1rem 1.2rem;
+            &:placeholder-shown ~ ${Label} {
+                font-size: 1rem;
+                top: 2.5rem;
+                left: 1.2rem;
+            }
+        `}
+`
+
 const HelperText = styled.p<IHelperText>`
-    position: absolute;
-    top: 100%;
+    display: block;
     width: 100%;
     padding: 0.4rem 0.8rem;
     margin: 0;
@@ -172,6 +190,7 @@ const HelperText = styled.p<IHelperText>`
     ${(p) =>
         p.error &&
         css`
+            margin-bottom: 1rem;
             background-color: #c0392b;
             color: #fff;
         `}
@@ -189,10 +208,16 @@ const InternalInput = (
                 ref={ref}
                 inputSize={inputSize}
                 required={required}
+                helperText={!!helperText}
                 error={error}
             >
+                <InputField
+                    type={type}
+                    placeholder={label}
+                    inputSize={inputSize}
+                    error={error}
+                />
                 {label && <Label inputSize={inputSize}>{label}</Label>}
-                <InputField type={type} inputSize={inputSize} error={error} />
                 {helperText && <HelperText error>{helperText}</HelperText>}
             </InputWrapper>
         </Fragment>
