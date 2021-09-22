@@ -1,7 +1,7 @@
 {
     "name": "@toruk/fusion-ui-example",
     "homepage": ".",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "scripts": {
         "start": "export PORT=3006; node ../node_modules/react-scripts/bin/react-scripts.js start",
         "build": "node ../node_modules/react-scripts/bin/react-scripts.js build",

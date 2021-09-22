@@ -5,7 +5,7 @@ interface IProps {
     title?: string
     width?: string
     center?: boolean
-    children: React.ReactChild
+    children: React.ReactNode
 }
 
 interface ICardWrapper {
