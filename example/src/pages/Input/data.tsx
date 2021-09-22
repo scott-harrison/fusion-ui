@@ -44,19 +44,16 @@ const data = {
                                     type="text"
                                     label="small"
                                     inputSize="small"
-                                    required
                                 />
                                 <Input
                                     type="text"
                                     label="medium"
                                     inputSize="medium"
-                                    required
                                 />
                                 <Input
                                     type="text"
                                     label="large"
                                     inputSize="large"
-                                    required
                                 />
                             </div>
                         )
@@ -75,14 +72,7 @@ const data = {
                     title: 'Error state with input field',
                     description: 'input with that has error state',
                     demo: () => {
-                        return (
-                            <Input
-                                type="text"
-                                label="Example Input"
-                                required
-                                error
-                            />
-                        )
+                        return <Input type="text" label="Example Input" error />
                     },
                     code: `<Input type="text" label="Example Input" required error />`,
                 },
@@ -95,7 +85,6 @@ const data = {
                             <Input
                                 type="text"
                                 label="Example Input"
-                                required
                                 error
                                 helperText="Fill in field"
                             />

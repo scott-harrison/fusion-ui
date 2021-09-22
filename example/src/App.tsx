@@ -1,10 +1,16 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Redirect,
+} from 'react-router-dom'
 import { Grid, Row, Column } from 'fusion-ui'
 
 import SideNav from './components/SideNav'
 import OverviewPage from './pages/Overview'
 import GridPage from './pages/Grid'
 import ButtonPage from './pages/Button'
+import CardPage from './pages/Card'
 import InputPage from './pages/Input'
 
 const App = () => (
@@ -32,13 +38,16 @@ const App = () => (
                             render={ButtonPage}
                         />
                         <Route
+                            path="/components/card"
+                            exact
+                            render={CardPage}
+                        />
+                        <Route
                             path="/components/input"
                             exact
                             render={InputPage}
                         />
-                        <Route path="*">
-                            <h1>404 Component not found</h1>
-                        </Route>
+                        <Redirect to="/components/overview" />
                     </Switch>
                 </Router>
             </Column>

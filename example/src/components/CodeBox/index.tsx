@@ -56,7 +56,6 @@ const Description = styled.div`
 const Example = styled.div``
 
 const ExamplesWrapper = styled.div<IExamplesWrapper>`
-    margin-top: 2rem;
     ${(p) =>
         p.total > 1 &&
         css`

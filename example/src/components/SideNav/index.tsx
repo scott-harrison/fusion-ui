@@ -34,6 +34,9 @@ const SideNav = () => {
                     <a href="/components/button">Button</a>
                 </li>
                 <li>
+                    <a href="/components/card">Card</a>
+                </li>
+                <li>
                     <Title>Data Entry</Title>
                 </li>
                 <li>
