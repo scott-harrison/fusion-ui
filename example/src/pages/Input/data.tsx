@@ -1,4 +1,5 @@
 import { Input } from 'fusion-ui'
+import { useState } from 'react'
 
 const data = {
     docs: [
@@ -9,7 +10,16 @@ const data = {
                 {
                     description: null,
                     demo: () => {
-                        return <Input type="text" label="Example Input" />
+                        const [basicValue, setBasicValue] = useState('')
+
+                        return (
+                            <Input
+                                type="text"
+                                label="Example Input"
+                                onChange={(e) => setBasicValue(e.target.value)}
+                                value={basicValue}
+                            />
+                        )
                     },
                     code: `<Input type="text" label="Example Input" />`,
                 },
@@ -22,8 +32,18 @@ const data = {
                 {
                     description: null,
                     demo: () => {
+                        const [requiredValue, setRequiredValue] = useState('')
+
                         return (
-                            <Input type="text" label="Example Input" required />
+                            <Input
+                                type="text"
+                                label="Example Input"
+                                required
+                                onChange={(e) =>
+                                    setRequiredValue(e.target.value)
+                                }
+                                value={requiredValue}
+                            />
                         )
                     },
                     code: `<Input type="text" label="Example Input" required />`,
@@ -38,22 +58,38 @@ const data = {
                 {
                     description: null,
                     demo: () => {
+                        const [smallValue, setSmallValue] = useState('')
+                        const [mediumValue, setMediumValue] = useState('')
+                        const [largeValue, setLargeValue] = useState('')
+
                         return (
                             <div>
                                 <Input
                                     type="text"
                                     label="small"
                                     inputSize="small"
+                                    onChange={(e) =>
+                                        setSmallValue(e.target.value)
+                                    }
+                                    value={smallValue}
                                 />
                                 <Input
                                     type="text"
                                     label="medium"
                                     inputSize="medium"
+                                    onChange={(e) =>
+                                        setMediumValue(e.target.value)
+                                    }
+                                    value={mediumValue}
                                 />
                                 <Input
                                     type="text"
                                     label="large"
                                     inputSize="large"
+                                    onChange={(e) =>
+                                        setLargeValue(e.target.value)
+                                    }
+                                    value={largeValue}
                                 />
                             </div>
                         )
@@ -72,7 +108,17 @@ const data = {
                     title: 'Error state with input field',
                     description: 'input with that has error state',
                     demo: () => {
-                        return <Input type="text" label="Example Input" error />
+                        const [errorValue, setErrorValue] = useState('')
+
+                        return (
+                            <Input
+                                type="text"
+                                label="Example Input"
+                                error
+                                onChange={(e) => setErrorValue(e.target.value)}
+                                value={errorValue}
+                            />
+                        )
                     },
                     code: `<Input type="text" label="Example Input" required error />`,
                 },
@@ -81,12 +127,16 @@ const data = {
                     description:
                         'Input with error state and contains helper text which describes the issue',
                     demo: () => {
+                        const [errorValue, setErrorValue] = useState('')
+
                         return (
                             <Input
                                 type="text"
                                 label="Example Input"
                                 error
                                 helperText="Fill in field"
+                                onChange={(e) => setErrorValue(e.target.value)}
+                                value={errorValue}
                             />
                         )
                     },

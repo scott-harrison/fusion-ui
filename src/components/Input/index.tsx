@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { ChangeEvent, Fragment } from 'react'
 import styled, { css } from 'styled-components'
 
 type sizeType = 'small' | 'medium' | 'large'
@@ -10,6 +10,8 @@ interface IProps {
     required?: boolean
     error?: boolean
     helperText?: string
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void
+    value: string
 }
 
 interface IFieldProps {
@@ -200,7 +202,16 @@ const InternalInput = (
     props: IProps,
     ref: React.ForwardedRef<HTMLInputElement>
 ) => {
-    const { type, inputSize, label, required, error, helperText } = props
+    const {
+        type,
+        inputSize,
+        label,
+        required,
+        error,
+        helperText,
+        onChange,
+        value,
+    } = props
 
     return (
         <Fragment>
@@ -216,6 +227,8 @@ const InternalInput = (
                     placeholder={label}
                     inputSize={inputSize}
                     error={error}
+                    onChange={onChange}
+                    value={value}
                 />
                 {label && <Label inputSize={inputSize}>{label}</Label>}
                 {helperText && <HelperText error>{helperText}</HelperText>}
