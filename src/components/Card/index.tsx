@@ -3,13 +3,13 @@ import styled, { css } from 'styled-components'
 
 interface IProps {
     title?: string
-    width?: string
+    maxWidth?: string
     center?: boolean
     children: React.ReactNode
 }
 
 interface ICardWrapper {
-    width?: string
+    maxWidth?: string
     center?: boolean
 }
 
@@ -19,18 +19,15 @@ const CardWrapper = styled.div<ICardWrapper>`
     padding: 0;
     color: #000000d9;
     font-size: 14px;
-    font-variant: tabular-nums;
-    line-height: 1.5715;
-    list-style: none;
-    font-feature-settings: 'tnum';
     position: relative;
     background: #fff;
     border-radius: 2px;
     border: 1px solid #f0f0f0;
+    width: 100%;
     ${(p) =>
-        p.width &&
+        p.maxWidth &&
         css`
-            width: ${p.width};
+            max-width: ${p.maxWidth};
         `}
 
     ${(p) =>
@@ -58,9 +55,9 @@ const CardBody = styled.div`
 `
 
 const Card = (props: IProps) => {
-    const { title, width, children } = props
+    const { title, maxWidth, children } = props
     return (
-        <CardWrapper width={width} center={true}>
+        <CardWrapper maxWidth={maxWidth} center={true}>
             {title && (
                 <CardHead>
                     <CardTitle>{title}</CardTitle>

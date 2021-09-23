@@ -37,7 +37,6 @@ const InputWrapper = styled.div<IWrapper>`
     position: relative;
     display: block;
     width: 100%;
-    max-width: 400px;
     padding: 1.5rem 0 1rem;
     margin: 0 auto;
     animation-duration: 0.8s;
@@ -118,6 +117,7 @@ const InputField = styled.input<IFieldProps>`
     font-size: 0.8rem;
     font-family: 'Helvetica Neue';
     font-weight: 400;
+    line-height: 0.8rem;
     letter-spacing: 0.04rem;
     color: #000;
     background: transparent;

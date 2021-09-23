@@ -43,10 +43,10 @@ const data = {
             description: 'Title of the card',
         },
         {
-            property: 'width',
+            property: 'maxWidth',
             type: 'string',
             default: '-',
-            description: 'define a size of card',
+            description: 'define a max size of card',
         },
         {
             property: 'center',
